@@ -27,6 +27,7 @@ const getSum = (elements) => {
   return sum.toFixed(5)
 }
 
+// prints a human readable result on screen
 const prettyPrintResult = () => {
   console.log(`   Time      Value  N_O Roll_Sum Min_Value Max_Value
 ---------------------------------------------------`)
@@ -35,6 +36,7 @@ const prettyPrintResult = () => {
   })
 }
 
+// proces all desired values per time-window
 const processSlidingValues = (window) => {
   const newLine = {
     Time: window.slice(-1)[0].timestamp,
@@ -47,12 +49,14 @@ const processSlidingValues = (window) => {
   output.push(newLine)
 }
 
+// generate a time-window
 const getCurrentWindow = (currentIndex) => {
   return records.filter((elt) => {
     return elt.timestamp >= records[currentIndex].timestamp-60
   })
 }
 
+// processes the data line by line
 const processLine = (line) => {
   const record = {
     timestamp: parseInt(line.split('\t')[0]),
