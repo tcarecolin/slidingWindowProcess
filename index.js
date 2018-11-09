@@ -63,8 +63,7 @@ const processLine = (line) => {
     value: parseFloat(line.split('\t')[1])
   }
   records.push(record)
-  const newWindow = getCurrentWindow(records.indexOf(record))
-  const newRecord = processSlidingValues(newWindow)
+  processSlidingValues(getCurrentWindow(records.indexOf(record)))
 }
 const closeStream = () => {
   prettyPrintResult()
